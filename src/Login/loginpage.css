@@ -10,6 +10,14 @@
 }
 
 .textField{
-    margin: 10px;
+    /* margin: 10px; */
     width: 23%;
+}
+
+.btn{
+    width: 23%;
+}
+
+.signAlert{
+    color: blue;
 }

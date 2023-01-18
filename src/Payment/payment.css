@@ -97,3 +97,8 @@
     color: gray;
     font-size: small;
 }
+
+.radioGroup{
+    display: flex;
+    
+}

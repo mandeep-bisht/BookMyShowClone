@@ -16,6 +16,8 @@
 
 .leftSide{
     padding-top: 2px;
+    display: flex;
+    align-items: center;
 }
 
 .searchField{
@@ -38,6 +40,7 @@
 
 .search{
     display: inline;
+    margin-bottom: 10px;
 }
 
 .icons{

@@ -34,7 +34,7 @@ MyFormControlLabel.propTypes = {
 
 export default function UseRadioGroup() {
   return (
-    <RadioGroup name="use-radio-group" defaultValue="first">
+    <RadioGroup row name="use-radio-group" defaultValue="first" className='radioGroup'>
         <MyFormControlLabel value="creditCard" label="Credit Card" control={<Radio />} />
         <MyFormControlLabel value="debitCard" label="Debit Card" control={<Radio />} />
         <MyFormControlLabel value="upi" label="UPI" control={<Radio />} />
