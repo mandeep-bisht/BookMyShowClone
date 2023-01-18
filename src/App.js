@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Navbar/Navbar';
+import Sidebar from './Sidebar/Sidebar';
+import Mainsection from './Mainsection/Mainsection';
+import Loginpage from './Login/Loginpage';
+import PaymentPage from './Payment/PaymentPage';
+import Seating from './Seating/Seating';
+import { useState } from 'react';
+import MyTest from './MyTest';
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Navbar />
+      <Sidebar />
+      <Mainsection /> */}
+      {/* <Loginpage /> */}
+      
+      {/* <PaymentPage /> */}
+      {/* <Seating /> */}
+      <MyTest />
+    </>
   );
 }
 

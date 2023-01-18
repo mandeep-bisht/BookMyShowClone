@@ -1,0 +1,99 @@
+.alphaDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.betaDiv{
+    display: flex;
+    text-align: left;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 10px;
+    line-height: 4px;
+    height: auto;
+    width: 20%;
+}
+
+.paymentCard{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 15px;
+    padding-right: 27px;
+}
+
+.ticketTypeAndPrice{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.numberOfTic{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.convinenceFeeAndAmount{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.subTotal{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid black;
+}
+
+.userInfo{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.field{
+    width: 100%;
+    line-height: 24px;
+}
+
+.cardInfoField{
+    line-height: 0px;
+}
+
+.payBtn{
+    color: white;
+    background-color: rgb(49, 108, 244);
+    border: none;
+    border-radius: 6px;
+    font-size: x-large;
+    padding: 6px;
+    width: 102%;
+    margin-top: 18px;
+}
+
+.fullNameWarning{
+    margin: 0;
+    color: gray;
+    font-size: small;
+}

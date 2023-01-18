@@ -1,0 +1,15 @@
+.mainLogin{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    position: absolute;
+    font-family: 'Noto Sans Tangsa', sans-serif;
+}
+
+.textField{
+    margin: 10px;
+    width: 23%;
+}

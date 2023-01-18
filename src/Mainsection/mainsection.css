@@ -1,0 +1,37 @@
+.mainSection{
+    position: absolute;
+    top: 2px;
+    left: 220px;
+    font-family: 'Noto Sans Tangsa', sans-serif;
+    margin-top: 55px;
+    padding: 0px 10px;
+    height: auto;
+    width: 82%;
+}
+
+.cardsDiv{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+.card{
+    display: flex;
+    flex-flow: column;
+    border: 1px solid black;
+    text-align: center;
+    width: 20%;
+    margin: 10px;
+}
+
+.info{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+

@@ -1,0 +1,29 @@
+.sidenav{
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    margin-top: 55px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: 1px solid black;
+    font-family: 'Noto Sans Tangsa', sans-serif;
+    background-color: white;
+    /* text-align: center; */
+}
+
+li{
+    list-style-type: none;
+    padding-left: 14px;
+}
+
+.sidenavHeading{
+    text-align: center;
+    /* font-family: 'Noto Sans Tangsa', sans-serif; */
+}
+
+ul{
+    overflow-y: hidden;
+}
