@@ -2,6 +2,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import TextFields from './TextFields'
 import Button from '@mui/material/Button';
 import './loginpage.css'
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
 
@@ -14,7 +15,9 @@ const LoginPage = () => {
                 <TextFields type="password" lable = "Password*" className='textField'/>
                 <Button variant="contained" className='btn'>Login</Button>
                 <p className='signAlert'>
-                    <u>Don't have an account yet?  Sign Up</u>
+                    <u>
+                        <Link to='/'>Don't have an account yet?  Sign Up</Link>
+                    </u>
                 </p>
             </div>
         </>

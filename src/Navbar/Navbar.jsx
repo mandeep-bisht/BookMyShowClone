@@ -2,8 +2,24 @@ import './nav.css'
 import NavLogo from '../Images/bookmyshowNoBg.png'
 import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
+
+    const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+    // const ShowLoginPerson = () => {
+
+    //     if(!isAuthenticated){
+    //         return (
+    //             <>
+    //                 <button>Logout</button>
+    //             </>
+    //         )
+    //     }
+    //     return(
+    //         <button onClick={() => loginWithRedirect()}>Login</button>
+    //     )
+    // }
 
     return(
         <>
@@ -18,7 +34,8 @@ const Navbar = () => {
                     </div>
                     <div className='icons'>
                         <a className='like'><FavoriteIcon fontSize="large" style={{ color: '#ffffff' }}/></a>
-                        <a className='personIcon'><PersonIcon fontSize="large" style={{ color: '#ffffff' }}/></a>
+                        <a>{ (isAuthenticated) ? (<button>Logout</button>) : <button onClick={() => loginWithRedirect()}>Login</button>}</a>
+                        {console.log(isAuthenticated)}
                     </div>
                 </div>
             </nav>

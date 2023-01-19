@@ -8,24 +8,26 @@ import Seating from './Seating/Seating';
 import { useState } from 'react';
 import MyTest from './MyTest';
 import LoginPage from './Login/LoginPage';
+import LandingPage from './LandingPage/LandingPage';
+import { Routes, Route } from 'react-router-dom';
+
 
 
 function App() {
 
   return (
-    <>
-      {/* <Navbar />
-      <Sidebar />
-      <Mainsection /> */}
+    <Routes>
+      <Route path='/' exact element={ <LandingPage /> } />
 
-      <SignUp />
+      {/* <Route path='/' element={<SignUp />} />
+      <Route path='/login' element={<LoginPage />} /> */}
       {/* <LoginPage /> */}
       
 
       {/* <PaymentPage /> */}
       {/* <Seating /> */}
-      {/* <MyTest /> */}
-    </>
+      {/* <Route path='/test' element={<MyTest />} /> */}
+    </Routes>
   );
 }
 

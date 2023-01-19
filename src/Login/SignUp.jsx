@@ -3,13 +3,10 @@ import TextFields from './TextFields'
 import Button from '@mui/material/Button';
 import './loginpage.css'
 import LoginPage from './LoginPage';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
 
-    const haveAcc = () => {
-
-        return(<LoginPage />)
-    }
 
     return(
         <>
@@ -21,7 +18,9 @@ const SignUp = () => {
                 <TextFields type="password" lable = "Password*" className='textField'/>
                 <Button variant="contained" className='btn'>Register</Button>
                 <p className='signAlert' >
-                    <u onClick={haveAcc} >Already have an account? Sign In</u>
+                    <u>
+                        <Link to='/login'>Already have an account? Sign In</Link>
+                    </u>
                 </p>
             </div>
         </>
