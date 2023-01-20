@@ -44,8 +44,8 @@
 }
 
 .icons{
-    display: inline;
     padding-right: 20px;
+    display: flex;
 }
 
 a{
@@ -58,4 +58,12 @@ a{
 
 .personIcon{
     
+}
+
+.profileDropdown{
+    color: black;
+    background-color: #404040;
+    position: absolute;
+    width: 200px;
+    height: auto;
 }

@@ -5,7 +5,7 @@ import GetGenres from './GetGeneres';
 
 const Sidebar = () => {
 
-    const [genre, setGenre] = useState('');
+    const [genre, setGenre] = useState([]);
 
     const API_KEY = 'f6c14b21d3ad03397cf8ae89dcf0c411';
 
@@ -13,11 +13,6 @@ const Sidebar = () => {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
         .then(response => {
         const data = response.data;
-        // console.log(data);
-        //     data.genres.map( (currVal) => {
-        //         console.log(currVal.name)
-        //         setGenre(data.genres)
-        //     } )
         setGenre(data.genres)
         })
         .catch(error => {
@@ -25,8 +20,7 @@ const Sidebar = () => {
         });
     },[]);
 
-    console.log(genre);
-
+    // console.log(genre)
     return(
         <>
             <div class="sidenav">

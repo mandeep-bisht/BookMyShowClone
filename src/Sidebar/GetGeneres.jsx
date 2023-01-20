@@ -3,6 +3,8 @@ import { useEffect } from "react";
 
 const GetGenres = ({genre}) => {
 
+    // console.log(`genre ${genre}`)
+
     return(
         <>
             {genre.map(genre => (

@@ -3,23 +3,13 @@ import NavLogo from '../Images/bookmyshowNoBg.png'
 import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useAuth0 } from "@auth0/auth0-react";
+import React, { useState } from 'react';
 
 const Navbar = () => {
 
-    const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
-    // const ShowLoginPerson = () => {
-
-    //     if(!isAuthenticated){
-    //         return (
-    //             <>
-    //                 <button>Logout</button>
-    //             </>
-    //         )
-    //     }
-    //     return(
-    //         <button onClick={() => loginWithRedirect()}>Login</button>
-    //     )
-    // }
+    const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
+    const [isShown, setIsShown] = useState(false);
+    
 
     return(
         <>
@@ -34,8 +24,17 @@ const Navbar = () => {
                     </div>
                     <div className='icons'>
                         <a className='like'><FavoriteIcon fontSize="large" style={{ color: '#ffffff' }}/></a>
-                        <a>{ (isAuthenticated) ? (<button>Logout</button>) : <button onClick={() => loginWithRedirect()}>Login</button>}</a>
-                        {console.log(isAuthenticated)}
+                        <a>{ (isAuthenticated) ? 
+                            (<div><PersonIcon onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} fontSize="large" style={{ color: '#ffffff' }} className = 'personIcon' />
+                            {isShown && (
+                                <div className='profileDropdown'>
+                                    <div>{user.name}</div>
+                                    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} >Logout</button>
+                                    {console.log(user)}
+                                </div>
+                            )}</div>) 
+                            : <button onClick={() => loginWithRedirect()}>Login</button>}
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -44,3 +43,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
