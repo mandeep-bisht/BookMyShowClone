@@ -4,6 +4,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState } from 'react';
+import PersonDropdown from './PersonDropdown';
 
 const Navbar = () => {
 
@@ -26,13 +27,7 @@ const Navbar = () => {
                         <a className='like'><FavoriteIcon fontSize="large" style={{ color: '#ffffff' }}/></a>
                         <a>{ (isAuthenticated) ? 
                             (<div><PersonIcon onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} fontSize="large" style={{ color: '#ffffff' }} className = 'personIcon' />
-                            {isShown && (
-                                <div className='profileDropdown'>
-                                    <div>{user.name}</div>
-                                    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} >Logout</button>
-                                    {console.log(user)}
-                                </div>
-                            )}</div>) 
+                            {isShown && (<PersonDropdown />)}</div>) 
                             : <button onClick={() => loginWithRedirect()}>Login</button>}
                         </a>
                     </div>

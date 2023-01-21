@@ -8,7 +8,7 @@ const GetGenres = ({genre}) => {
     return(
         <>
             {genre.map(genre => (
-                <li><button key={genre.id} >{genre.name}</button></li>
+                <li><button className="genreBtn">{genre.name}</button></li>
             ))}
         </>
     )

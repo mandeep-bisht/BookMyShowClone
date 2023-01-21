@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.seatBooking-container {
+    margin: 0.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-details {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
+}
+
+.cinema {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+}
+
+.booking-date {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+}
+
+.booking-time {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+}
+
+.cinema>select {
+    margin: 0.5rem 3rem 0.5rem 0;
+    height: 1.5vw;
+    width: 45vh;
+    font-size: 0.9rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+
+.booking-date>input {
+    margin: 0.5rem 3rem 0.5rem 0;
+    height: 1.5vw;
+    width: 45vh;
+    font-size: 0.9rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+
+.booking-time>select {
+    margin: 0.5rem 3rem 0.5rem 0;
+    height: 1.5vw;
+    width: 45vh;
+    font-size: 0.9rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+
+.screen-container {
+    display: flex;
+    justify-content: center;
+}
+
+.screen-container>.na {
+    display: flex;
+    align-items: center;
+}
+
+.screen-container>.na>p {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid black;
+    margin-right: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.selected {
+    display: flex;
+    align-items: center;
+}
+
+.selected>p {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid black;
+    margin: 0 0.5rem 0 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: rgb(3, 198, 252);
+    border: none;
+}
+
+.occupied {
+    display: flex;
+    align-items: center;
+}
+
+.occupied>p {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid black;
+    margin: 0 0.5rem 0 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: rgb(248, 68, 100);
+    border: none;
+}
+
+.screen {
+    border: 1px solid black;
+    width: 65vw;
+    margin: auto;
+    margin-top: 0.8rem;
+    height: 10vh;
+    transform: skew(45deg);
+    background-color: rgb(3, 198, 252);
+    border: none;
+}
+
+.seats{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+
+}
+.seats>div>p{
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid black;
+    margin: 0 0.5rem 0 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    font-size: 0.7rem;
+    /* align-self: center; */
+    align-content: center;
+    padding: 0.15rem;
+    margin-bottom: 0.3rem;
+    cursor: pointer;
+}
+.booking-btn{
+    margin: auto;
+    /* margin-bottom: 0.8rem; */
+}
+.booking-btn>button{
+    margin: 1.5rem;
+    width: 8vw;
+    height: 6vh;
+    color: white;
+    background-color: rgb(248, 68, 100);
+    border: none;
+    font-size: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.selected-seat{
+    background-color: rgb(3, 198, 252);
+    border: 1px solid rgb(3, 198, 252);
+}
+
+.heading{
+    margin-bottom: 1.2rem;
+}

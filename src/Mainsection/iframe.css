@@ -1,0 +1,54 @@
+.alphaIFreame{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+
+.closeIframe{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.betaImage{
+    display: flex;
+    align-items: center;
+}
+
+.betaImage img{
+    height: auto;
+    width: 100%
+}
+
+.betaContent{
+    text-align: left;
+    padding: 10px;
+}
+
+.rating{
+    display: flex;
+}
+
+.rating div{
+    font-size: 21px;
+}
+
+.gamaContent{
+    padding: 5px 0px;
+}
+
+.iFrameBtnDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 64%;
+    padding: 8px 5px 0px 5px;
+    background-color: white;
+}
+
+.iFramebtn{
+    border: 2px solid black;
+    padding: 4px 6px;
+}
+
+

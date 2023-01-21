@@ -27,3 +27,10 @@ li{
 ul{
     overflow-y: hidden;
 }
+
+.genreBtn{
+    border: none;
+    background-color: white;
+    font-size: large;
+    margin: 12px 0px;
+}
