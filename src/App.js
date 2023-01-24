@@ -30,14 +30,7 @@ function App() {
       <Route path='/:id' element={ <MainWithId /> } />
       <Route path='/:moviename/:price' element={ <SeatBooking  /> } />     
       <Route path='/:moviename/:price/:numberOfTickets' element={<PaymentPage />} />
-      {/* <Route path='/' element={<SignUp />} />
-      <Route path='/login' element={<LoginPage />} /> */}
-      {/* <LoginPage /> */}
-      
-
-      {/* <PaymentPage /> */}
-      {/* <Seating /> */}
-      {/* <Route path='/test' element={<MyTest />} /> */}
+      <Route path='/login' element={<LoginPage />}/>
     </Routes>
   );
 }

@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import PersonDropdown from './PersonDropdown';
 import { useNavigate } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
+import ShowWishLisht from './ShowWishList';
 
 const Navbar = () => {
 
@@ -30,9 +31,9 @@ const Navbar = () => {
                         <button className='btn'>Search</button>
                     </div>
                     <div className='icons'>
-                        <a className='like'><FavoriteIcon fontSize="large" style={{ color: '#ffffff' }}/></a>
+                        <ShowWishLisht />
                         { (isAuthenticated) ? 
-                        (<Tooltip title={user.name}><button className='loginLogoutBtn' onClick={() => logout()}>Logout</button></Tooltip>) : 
+                        (<Tooltip title={user.name} arrow><button className='loginLogoutBtn' onClick={() => logout()}>Logout</button></Tooltip>) : 
                         (<button className='loginLogoutBtn' onClick={() => loginWithRedirect()}>Login</button>)}
                         
                     </div>

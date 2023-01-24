@@ -7,6 +7,10 @@ import StarIcon from '@mui/icons-material/Star';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, Route } from 'react-router-dom';
 import PaymentPage from '../Payment/PaymentPage';
+import { useAuth0 } from "@auth0/auth0-react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 import './iframe.css'
 
 const style = {
@@ -23,18 +27,30 @@ const style = {
 
 const IFrame = ({cardData, open, handleClose}) => {
 
+    const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
+
     let price = Math.floor(Math.random() * (300 - 250 + 1)) + 250;
 
-    const [callPayment, setcallPayment] = React.useState(false)
+    const [wishlist, setWishlist] = useState(
+        JSON.parse(localStorage.getItem(user.email)) || []
+    );
 
-    const handlePayment = () => {
-        setcallPayment(true);
+    console.log(cardData)
+    const saveToWishList = () => {
+        isAuthenticated ? toast("Movie is added to your wishlist successfully!") : toast.error("Please Login First!")
 
+        const movieId = cardData.belongs_to_collection.id;
+        const movieTitle = cardData.title
+        setWishlist([...wishlist, {movieId, movieTitle}]);
+
+        localStorage.setItem(user.email , JSON.stringify(wishlist))
     }
-    console.log("hello", cardData)
 
 
-    return(
+
+
+
+    return(<>
         <div>
             <Modal
                 open={open}
@@ -63,7 +79,7 @@ const IFrame = ({cardData, open, handleClose}) => {
                                 <button className='iFramebtn' >Book Ticket</button>
                             </Link>
                             
-                            <button className='iFramebtn' >Wishlist</button>
+                            <button className='iFramebtn' onClick={saveToWishList} >Wishlist</button>
                         </div>
                     </div>
                 </div>
@@ -72,6 +88,8 @@ const IFrame = ({cardData, open, handleClose}) => {
 
         {/* {callPayment && <Route path='/payment' exact element={ <PaymentPage /> } />} */}
     </div>
+    <ToastContainer />
+    </>
     )
 }
 
