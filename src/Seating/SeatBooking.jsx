@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './seatBooking.css'
 
 const SeatBooking = () => {
 
-    const [selectedSeat, setSelectedSeat] = useState([]);
+    const { moviename, price } = useParams();
 
+    const [selectedSeat, setSelectedSeat] = useState([]);
+    const [numberOfTickets, setSumberOfTickets] = useState(0);
     const onSeatClick = (index) => {
         let tempArray = [...selectedSeat];
         let seatIndex = tempArray.indexOf(index);
@@ -14,8 +18,12 @@ const SeatBooking = () => {
             tempArray.push(index);
         }
         setSelectedSeat(tempArray);
+        setSumberOfTickets(tempArray.length);
+        console.log(numberOfTickets);
     };
 
+    // const numberOfTickets = selectedSeat.length();
+    // console.log(numberOfTickets);
 
     return (
         <div className="seatBooking-container" >
@@ -76,7 +84,9 @@ const SeatBooking = () => {
                 ))}
             </div>
             <div className="booking-btn" >
-                <button type="submit" >Submit</button>
+                <Link to={`/${moviename}/${price}/${numberOfTickets}`}>
+                    <button type="submit" >Submit</button>
+                </Link>
             </div>
         </div>
     )

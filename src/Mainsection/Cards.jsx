@@ -44,8 +44,9 @@ const Cards = ({card}) => {
             .catch(error => {
                 console.log(error);
             });
+            setOpen(true);
     }
-    
+    console.log("Open",open)
     const handleClose = () => setOpen(false);
 
     return(
@@ -60,10 +61,12 @@ const Cards = ({card}) => {
                         <p>{currVal.vote_average}</p>
                     </div>
                 </div>
-                {open && <IFrame cardData={cardData}/>}
                 </>
             )})}
+            {open && <IFrame cardData={cardData} open={open} handleClose={handleClose}/>}
+            
         </>
+
     )
 }
 

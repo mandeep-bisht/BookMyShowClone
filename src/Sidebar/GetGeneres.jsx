@@ -1,14 +1,24 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const GetGenres = ({genre}) => {
 
-    // console.log(`genre ${genre}`)
+    const showGenre = (shownId) => {
+
+
+
+
+    }
 
     return(
         <>
             {genre.map(genre => (
-                <li><button className="genreBtn">{genre.name}</button></li>
+                <li>
+                <Link to={`/${genre.id}`}>
+                    <button key={genre.id} onClick={() => showGenre(genre.id)} className="genreBtn">{genre.name}</button>
+                </Link>
+                </li>
             ))}
         </>
     )

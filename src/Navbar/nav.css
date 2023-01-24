@@ -73,3 +73,13 @@ a{
     color: black;
     z-index: 10;
 }
+
+.loginLogoutBtn{
+    padding: 0;
+    margin: 0;
+    color: white;
+    background-color: #404040;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0rem 0.5rem;
+}

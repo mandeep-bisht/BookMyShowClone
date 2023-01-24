@@ -22,7 +22,6 @@
     border: 1px solid black;
     margin: 20px;
     padding: 10px;
-    line-height: 4px;
     height: auto;
     width: 20%;
 }
@@ -34,6 +33,7 @@
     margin: 20px;
     padding: 15px;
     padding-right: 27px;
+    height: 50%;
 }
 
 .ticketTypeAndPrice{
@@ -77,10 +77,6 @@
     line-height: 24px;
 }
 
-.cardInfoField{
-    line-height: 0px;
-}
-
 .payBtn{
     color: white;
     background-color: rgb(49, 108, 244);
@@ -100,5 +96,4 @@
 
 .radioGroup{
     display: flex;
-    
 }

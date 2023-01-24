@@ -3,6 +3,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import CardInfoFields from "./CardInfoFields";
 import UseRadioGroup from './UseRadioGroup'
+import { Link } from "react-router-dom";
+import SuccessMess from "../Successfull/SuccessMess";
 
 
 const PaymentCard = () => {
@@ -10,9 +12,9 @@ const PaymentCard = () => {
         <>
             <h2>Payment</h2>
             <div className="userInfo">
-                <TextFields type="text" lable = "First name *" className='textField'/>
-                <TextFields type="text" lable = "Last name *" className='textField'/>
-                <TextFields type="text" lable = "Email *" className='textField'/>
+                <TextFields type="text" lable = "First name *" className='textField' required/>
+                <TextFields type="text" lable = "Last name *" className='textField' required/>
+                <TextFields type="text" lable = "Email *" className='textField' required/>
             </div>
             <div className="paymentMode">
                 {/*
@@ -21,13 +23,16 @@ const PaymentCard = () => {
                 <UseRadioGroup />
             </div>
             <div className="cardDetails">
-                <CardInfoFields labelName="Name on card" type="text" className="cardInfoField"/>
+                <CardInfoFields labelName="Name on card" type="text" className="cardInfoField" required/>
                 <p className="fullNameWarning">Full name as displayed on card</p>
-                <CardInfoFields labelName="Card Number" type="number" className="cardInfoField" />
-                <CardInfoFields labelName="Expiration" type="text" className="cardInfoField" />
-                <CardInfoFields labelName="CVV" type="number" className="cardInfoField" />
+                <CardInfoFields labelName="Card Number" type="number" className="cardInfoField" required />
+                <CardInfoFields labelName="Expiration" type="text" className="cardInfoField" required />
+                <CardInfoFields labelName="CVV" type="number" className="cardInfoField" required />
             </div>
-            <button className="payBtn">Proceed to pay</button>
+            <Link to="/success" element= <SuccessMess />>
+                <button className="payBtn">Proceed to pay</button>
+            </Link>
+            
         </>
     )
 }

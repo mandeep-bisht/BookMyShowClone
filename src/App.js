@@ -11,6 +11,10 @@ import LandingPage from './LandingPage/LandingPage';
 import { Routes, Route } from 'react-router-dom';
 import SeatBooking from './Seating/SeatBooking';
 import IFrame from './Mainsection/IFrame';
+import Error from './Error/Error';
+import SuccessMess from './Successfull/SuccessMess';
+import Cards from './Mainsection/Cards';
+import MainWithId from './Mainsection/MainWithId';
 
 
 function App() {
@@ -18,10 +22,14 @@ function App() {
   return (
     <Routes>
       <Route path='/' exact element={ <LandingPage /> } />
-      <Route path='/iframe' exact element={ <IFrame /> } />
+      <Route path='/payment' exact element={ <PaymentPage /> } />
+      <Route path='/seating' exact element={ <SeatBooking /> } />
       
-
-      {/* <Route path='/' element={<SeatBooking />} /> */}
+      <Route path='*' element={ <Error /> } />
+      <Route path='/success' exact element={ <SuccessMess /> } />
+      <Route path='/:id' element={ <MainWithId /> } />
+      <Route path='/:moviename/:price' element={ <SeatBooking  /> } />     
+      <Route path='/:moviename/:price/:numberOfTickets' element={<PaymentPage />} />
       {/* <Route path='/' element={<SignUp />} />
       <Route path='/login' element={<LoginPage />} /> */}
       {/* <LoginPage /> */}

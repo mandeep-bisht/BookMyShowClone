@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import StarIcon from '@mui/icons-material/Star';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link, Route } from 'react-router-dom';
+import PaymentPage from '../Payment/PaymentPage';
 import './iframe.css'
 
 const style = {
@@ -19,21 +21,21 @@ const style = {
   p: 4,
 };
 
-const IFrame = (cardData) => {
-
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-        console.log(cardData)
-        setOpen(true);
-    }
-    const handleClose = () => setOpen(false);
+const IFrame = ({cardData, open, handleClose}) => {
 
     let price = Math.floor(Math.random() * (300 - 250 + 1)) + 250;
-    // const []
+
+    const [callPayment, setcallPayment] = React.useState(false)
+
+    const handlePayment = () => {
+        setcallPayment(true);
+
+    }
+    console.log("hello", cardData)
+
 
     return(
         <div>
-            <button onClick={handleOpen}>Open</button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -44,26 +46,31 @@ const IFrame = (cardData) => {
                 <CloseIcon className='closeIframe' onClick={handleClose}/>
                 <div className='alphaIFreame'>
                     <div className='betaImage'>
-                        <img src={`https://image.tmdb.org/t/p/original${cardData.cardData.poster_path}`} alt="image" className='iFrameImg'/>
+                        <img src={`https://image.tmdb.org/t/p/original${cardData.poster_path}`} alt="image" className='iFrameImg'/>
                     </div>
                     <div className='betaContent'>
-                        <h1>{cardData.cardData.title}</h1>
+                        <h1>{cardData.title}</h1>
                         <div className='rating'>
                             <StarIcon />
-                            <div><b>{cardData.cardData.vote_average}/10</b></div>
+                            <div><b>{cardData.vote_average}/10</b></div>
                         </div>
-                        <p className='gamaContent'>{cardData.cardData.original_language.toUpperCase()}</p>
+                        <p className='gamaContent'>{cardData.original_language}</p>
                         <p className='gamaContent'>{Math.floor(Math.random() * (150 - 100 + 1)) + 100} minutes * Action{}</p>
-                        <p className='gamaContent'>{cardData.cardData.overview}</p>
+                        <p className='gamaContent'>{cardData.overview}</p>
                         <p className='gamaContent'>₹{price}</p>
                         <div className='iFrameBtnDiv gamaContent'>
-                            <button className='iFramebtn' >Book Ticket</button>
-                            <button className='iFramebtn'  >Wishlist</button>
+                            <Link to={`/${cardData.title}/${price}`}>
+                                <button className='iFramebtn' >Book Ticket</button>
+                            </Link>
+                            
+                            <button className='iFramebtn' >Wishlist</button>
                         </div>
                     </div>
                 </div>
             </Box>
             </Modal>
+
+        {/* {callPayment && <Route path='/payment' exact element={ <PaymentPage /> } />} */}
     </div>
     )
 }
