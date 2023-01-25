@@ -31,6 +31,7 @@ function App() {
       <Route path='/:moviename/:price' element={ <SeatBooking  /> } />     
       <Route path='/:moviename/:price/:numberOfTickets' element={<PaymentPage />} />
       <Route path='/login' element={<LoginPage />}/>
+      <Route path='/:searchMov' element={ <LandingPage />} />
     </Routes>
   );
 }

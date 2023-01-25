@@ -20,10 +20,15 @@
     align-items: center;
 }
 
+.rightSide{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .searchField{
     padding: 6px;
     margin-top: 8px;
-    margin-right: 16px;
     font-size: 17px;
     border: 1px solid black;
     border-radius: 5px;
@@ -32,46 +37,24 @@
 .btn{
     padding: 6px;
     margin-top: 8px;
-    margin-right: 16px;
     font-size: 17px;
     border: 1px solid black;
     border-radius: 5px;
+    width: 100%;
 }
 
 .search{
-    display: inline;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icons{
-    padding-right: 20px;
     display: flex;
-}
-
-a{
-    padding: 10px ;
-}
-
-.like{
-    
-}
-
-.personIcon{
-    
-}
-
-.profileDropdown{
-    color: black;
-    background-color: #404040;
-    position: absolute;
-    width: 200px;
-    height: auto;
-}
-
-.prsonDropData{
-    background-color: blue;
-    color: black;
-    z-index: 10;
+    justify-content: space-evenly;
+    margin-top: 0.6rem;
+    width: 20%;
 }
 
 .loginLogoutBtn{
@@ -82,4 +65,10 @@ a{
     border: 1px solid black;
     border-radius: 4px;
     padding: 0rem 0.5rem;
+}
+
+.personLogoutBtn{
+    font-size: large;
+    background-color: white;
+    border: none;
 }

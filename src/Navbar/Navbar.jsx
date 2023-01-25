@@ -8,8 +8,16 @@ import PersonDropdown from './PersonDropdown';
 import { useNavigate } from 'react-router-dom';
 import Tooltip from '@mui/material/Tooltip';
 import ShowWishLisht from './ShowWishList';
+import ShowPersonIcon from './ShowPersonIcon';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const[searchMovie, setsearchMovie] = useState('');
+    const handleChnageText = (event) => {
+        setsearchMovie(event.target.value)
+    }
+
 
     const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
     const [isShown, setIsShown] = useState(false);
@@ -25,18 +33,15 @@ const Navbar = () => {
                 <div className='leftSide'>
                     <img src={NavLogo} onClick={goHome} className='navLogo'/>
                 </div>
-                <div className='leftSide'>
-                    <div className='search'>
-                        <input type='text' placeholder='Search' className='searchField'/>
-                        <button className='btn'>Search</button>
-                    </div>
-                    <div className='icons'>
-                        <ShowWishLisht />
-                        { (isAuthenticated) ? 
-                        (<Tooltip title={user.name} arrow><button className='loginLogoutBtn' onClick={() => logout()}>Logout</button></Tooltip>) : 
-                        (<button className='loginLogoutBtn' onClick={() => loginWithRedirect()}>Login</button>)}
-                        
-                    </div>
+                <div className='search'>
+                    <input type='text' placeholder='Search' className='searchField' onChange={handleChnageText} value={searchMovie}/>
+                    <Link to={`/${searchMovie}`}><button className='btn'>Search</button></Link>
+                </div>
+                <div className='icons'>
+                    <ShowWishLisht />
+                    { (isAuthenticated) ? 
+                    (<ShowPersonIcon />) : 
+                    (<button className='loginLogoutBtn' onClick={() => loginWithRedirect()}>Login</button>)}
                 </div>
             </nav>
         </>
@@ -45,3 +50,4 @@ const Navbar = () => {
 
 export default Navbar;
 
+//<Tooltip title={user.name} arrow><button className='loginLogoutBtn' onClick={() => logout()}>Logout</button></Tooltip>
