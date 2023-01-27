@@ -25,18 +25,15 @@ const MainWithId = () => {
         .catch(error => {
             console.log(error);
         });
-    },[]);
+    },[id]);
     
     return(
         <>
             <Navbar />
             <Sidebar />
             <div className='mainSection'>
-                <h1>Now Playing</h1>
                 <div className='cardsDiv'>
                     <Cards  card={card} />
-                    {/* <Cards /> */}
-                    
                 </div>
             </div>
         </>

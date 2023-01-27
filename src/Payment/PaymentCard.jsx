@@ -8,13 +8,14 @@ import SuccessMess from "../Successfull/SuccessMess";
 
 
 const PaymentCard = () => {
+
     return(
         <>
             <h2>Payment</h2>
             <div className="userInfo">
-                <TextFields type="text" lable = "First name *" className='textField' required/>
-                <TextFields type="text" lable = "Last name *" className='textField' required/>
-                <TextFields type="text" lable = "Email *" className='textField' required/>
+                <TextFields type="text" lable = "First name" className='textField' required/>
+                <TextFields type="text" lable = "Last name" className='textField' required/>
+                <TextFields type="text" lable = "Email" className='textField' required/>
             </div>
             <div className="paymentMode">
                 {/*
@@ -23,11 +24,11 @@ const PaymentCard = () => {
                 <UseRadioGroup />
             </div>
             <div className="cardDetails">
-                <CardInfoFields labelName="Name on card" type="text" className="cardInfoField" required/>
+                <CardInfoFields labelName="Name on card" type="text" className="cardInfoField" min = {3} max = {20} />
                 <p className="fullNameWarning">Full name as displayed on card</p>
-                <CardInfoFields labelName="Card Number" type="number" className="cardInfoField" required />
-                <CardInfoFields labelName="Expiration" type="text" className="cardInfoField" required />
-                <CardInfoFields labelName="CVV" type="number" className="cardInfoField" required />
+                <CardInfoFields labelName="Card Number" type="number" className="cardInfoField" min = {12} max = {16}/>
+                <CardInfoFields labelName="Expiration" type="text" className="cardInfoField" min = {2} max = {5} />
+                <CardInfoFields labelName="CVV" type="number" className="cardInfoField" min = {3} max = {3} />
             </div>
             <Link to="/success" element= <SuccessMess />>
                 <button className="payBtn">Proceed to pay</button>

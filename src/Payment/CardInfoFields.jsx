@@ -11,7 +11,7 @@ const CardInfoFields = (props) => {
         <>
             <div className={props.className}>
                 <p>{props.labelName}</p>
-                <input type={props.type} className="field" value={value} onChange={handleChange}/>
+                <input type={props.type} className="field" value={value} onChange={handleChange} required max={props.max} min={props.min}/>
             </div>
         </>
     )

@@ -35,7 +35,7 @@ const Navbar = () => {
                 </div>
                 <div className='search'>
                     <input type='text' placeholder='Search' className='searchField' onChange={handleChnageText} value={searchMovie}/>
-                    <Link to={`/${searchMovie}`}><button className='btn'>Search</button></Link>
+                    <Link to={`/search/${searchMovie}`}><button className='btn'>Search</button></Link>
                 </div>
                 <div className='icons'>
                     <ShowWishLisht />

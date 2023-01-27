@@ -18,6 +18,7 @@ const TextFields = (props) => {
             label={props.lable}
             value={name}
             onChange={handleChange}
+            required
             />
         </>
     )

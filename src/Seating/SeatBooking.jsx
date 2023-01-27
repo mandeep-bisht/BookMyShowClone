@@ -83,9 +83,9 @@ const SeatBooking = () => {
                     </div>
                 ))}
             </div>
-            <div className="booking-btn" >
+            <div className="booking-btnDiv" >
                 <Link to={`/${moviename}/${price}/${numberOfTickets}`}>
-                    <button type="submit" >Submit</button>
+                    <button type="submit" className="booking-btn" >Submit</button>
                 </Link>
             </div>
         </div>

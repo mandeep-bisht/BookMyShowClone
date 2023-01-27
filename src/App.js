@@ -15,6 +15,7 @@ import Error from './Error/Error';
 import SuccessMess from './Successfull/SuccessMess';
 import Cards from './Mainsection/Cards';
 import MainWithId from './Mainsection/MainWithId';
+import ShowSearchResult from './Navbar/ShowSearchResult';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
       <Route path='/:moviename/:price' element={ <SeatBooking  /> } />     
       <Route path='/:moviename/:price/:numberOfTickets' element={<PaymentPage />} />
       <Route path='/login' element={<LoginPage />}/>
-      <Route path='/:searchMov' element={ <LandingPage />} />
+      <Route path='/search/:searchMovie' element={ <ShowSearchResult />} />
     </Routes>
   );
 }
