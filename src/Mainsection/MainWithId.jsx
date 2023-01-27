@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import IFrame from './IFrame'
 import { useParams } from 'react-router-dom'
+import Navbar from '../Navbar/Navbar'
+import Sidebar from '../Sidebar/Sidebar'
+
 
 const MainWithId = () => {
     
@@ -26,6 +29,8 @@ const MainWithId = () => {
     
     return(
         <>
+            <Navbar />
+            <Sidebar />
             <div className='mainSection'>
                 <h1>Now Playing</h1>
                 <div className='cardsDiv'>

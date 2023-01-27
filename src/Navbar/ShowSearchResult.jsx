@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cards from "../Mainsection/Cards";
+import Navbar from "./Navbar";
+import Sidebar from "../Sidebar/Sidebar";
 
 
 const ShowSearchResult = (searchMov) => {
     //bottom one is for searching the movie 
     const [ card, setCard ] = useState({results : []});
+    console.log("give movie anme",searchMov);
 
     const API_KEY = 'f6c14b21d3ad03397cf8ae89dcf0c411';
 
@@ -19,10 +22,12 @@ const ShowSearchResult = (searchMov) => {
         .catch(error => {
             console.log(error);
         });
-    },[]);
+    },[searchMov]);
 
     return(
         <>
+            <Navbar />
+            <Sidebar />
             <div className='mainSection'>
                 <h1>Now Playing</h1>
                 <div className='cardsDiv'>

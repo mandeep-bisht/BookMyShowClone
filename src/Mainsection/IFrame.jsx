@@ -10,7 +10,7 @@ import PaymentPage from '../Payment/PaymentPage';
 import { useAuth0 } from "@auth0/auth0-react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './iframe.css'
 
 const style = {
@@ -35,20 +35,19 @@ const IFrame = ({cardData, open, handleClose}) => {
         JSON.parse(localStorage.getItem(user.email)) || []
     );
 
-    console.log(cardData)
+    useEffect(() => {
+        localStorage.setItem(user.email , JSON.stringify(wishlist));
+    },[wishlist]);
     const saveToWishList = () => {
+
         isAuthenticated ? toast("Movie is added to your wishlist successfully!") : toast.error("Please Login First!")
 
-        const movieId = cardData.belongs_to_collection.id;
-        const movieTitle = cardData.title
+        const movieId = cardData.id;
+        const movieTitle = cardData.title;
         setWishlist([...wishlist, {movieId, movieTitle}]);
-
-        localStorage.setItem(user.email , JSON.stringify(wishlist))
+        
     }
-
-
-
-
+    
 
     return(<>
         <div>

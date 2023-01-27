@@ -33,20 +33,17 @@ const Cards = ({card}) => {
     const handleOpen = (id) => {
         const API_KEY = 'f6c14b21d3ad03397cf8ae89dcf0c411';
         
-            axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
-            .then(response => {
-                const data = response.data;
-                console.log(data);
-                setOpen(true);
-                setCardData(data);
-                
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
+        .then(response => {
+            const data = response.data;
             setOpen(true);
+            setCardData(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+        setOpen(true);
     }
-    console.log("Open",open)
     const handleClose = () => setOpen(false);
 
     return(
