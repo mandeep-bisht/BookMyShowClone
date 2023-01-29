@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import MainWithId from "../Mainsection/MainWithId";
 import ShowSearchResult from "../Navbar/ShowSearchResult";
-
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const LandingPage = () => {
@@ -19,6 +19,7 @@ const LandingPage = () => {
             <Mainsection />
             <MainWithId />
             <ShowSearchResult/>
+            <ToastContainer />
         </>
     )
 }

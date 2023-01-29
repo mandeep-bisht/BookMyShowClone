@@ -29,7 +29,7 @@ const IFrame = ({cardData, open, handleClose}) => {
 
     const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
 
-    let price = Math.floor(Math.random() * (300 - 250 + 1)) + 250;
+    const price = Math.floor(Math.random() * (300 - 250 + 1)) + 250;
 
     const [wishlist, setWishlist] = useState(
         JSON.parse(localStorage.getItem(user.email)) || []
@@ -38,10 +38,9 @@ const IFrame = ({cardData, open, handleClose}) => {
     useEffect(() => {
         localStorage.setItem(user.email , JSON.stringify(wishlist));
     },[wishlist]);
-    const saveToWishList = () => {
+        const saveToWishList = () => {
 
-        isAuthenticated ? toast("Movie is added to your wishlist successfully!") : toast.error("Please Login First!")
-
+        toast("Movie is added to your wishlist successfully!")
         const movieId = cardData.id;
         const movieTitle = cardData.title;
         setWishlist([...wishlist, {movieId, movieTitle}]);
@@ -87,7 +86,6 @@ const IFrame = ({cardData, open, handleClose}) => {
 
         {/* {callPayment && <Route path='/payment' exact element={ <PaymentPage /> } />} */}
     </div>
-    <ToastContainer />
     </>
     )
 }

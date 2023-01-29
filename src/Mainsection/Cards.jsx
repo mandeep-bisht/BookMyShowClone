@@ -8,9 +8,11 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from 'react';
 import axios from 'axios';
 import { display } from '@mui/system';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const style = {
@@ -26,23 +28,29 @@ const style = {
   };
 
 const Cards = ({card}) => {
+    const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
 
     const [open, setOpen] = useState(false);
     const [cardData, setCardData] = useState(false);
 
     const handleOpen = (id) => {
-        const API_KEY = 'f6c14b21d3ad03397cf8ae89dcf0c411';
-        
-        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
-        .then(response => {
-            const data = response.data;
+        if(isAuthenticated){
+            const API_KEY = 'f6c14b21d3ad03397cf8ae89dcf0c411';        
+            axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
+            .then(response => {
+                const data = response.data;
+                setOpen(true);
+                setCardData(data);  
+            })
+            .catch(error => {
+                console.log(error);
+            });
             setOpen(true);
-            setCardData(data);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-        setOpen(true);
+
+        }else{
+            return(toast.error("Please Login First!"));
+        }
+        
     }
     const handleClose = () => setOpen(false);
 
@@ -61,9 +69,7 @@ const Cards = ({card}) => {
                 </>
             )})}
             {open && <IFrame cardData={cardData} open={open} handleClose={handleClose}/>}
-            
         </>
-
     )
 }
 
