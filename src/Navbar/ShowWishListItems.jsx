@@ -10,24 +10,12 @@ import axios from 'axios';
 
 
 
-const ShowWishListItems = () => {
+const ShowWishListItems = ({ getData, wishlistData}) => {
     const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
 
-    let wishlistItems = JSON.parse(localStorage.getItem(user.email));
-
-    const [wishlistData, setWIshlistData] = useState([]);
-    const getData = () => {
-        const wishlistMovie = JSON.parse(localStorage.getItem('wishlistMovie')) || [];
-        setWIshlistData(wishlistMovie);
-    }
-
-    useEffect(() => {
-        getData();
-    }, [])
-
     const removeMenuItems = (index, movieTitle) => {
-        wishlistItems.splice(index, 1);
-        localStorage.setItem(user.email, JSON.stringify(wishlistItems));
+        wishlistData.splice(index, 1);
+        localStorage.setItem(user.email, JSON.stringify(wishlistData));
         toast(`${movieTitle} is removed from wishlist`);
         getData();
     }
@@ -55,7 +43,7 @@ const ShowWishListItems = () => {
     const handleClose = () => setOpen(false);
 
     return(<>
-        {wishlistItems.map((currVal, index) =>{
+        {wishlistData.map((currVal, index) =>{
             return(
                 <MenuItem >
                 <div className='menuItems'>
