@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 import './seatBooking.css'
 
 const SeatBooking = () => {
@@ -22,18 +23,34 @@ const SeatBooking = () => {
         console.log(numberOfTickets);
     };
 
-    // const numberOfTickets = selectedSeat.length();
-    // console.log(numberOfTickets);
+    const handleOnSubmitSeating = (event) => {
+        event.preventDefault();
+        if(numberOfTickets != 0){
+            window.location.href = `/${moviename}/${price}/${numberOfTickets}`;
+        }
+        else{
+            toast.error("Please select your seat");
+        }
+    }
+
+    const disablePastDate = () => {
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const yyyy = today.getFullYear();
+        return yyyy + "-" + mm + "-" + dd;
+    };
 
     return (
         <div className="seatBooking-container" >
+        <form onSubmit={handleOnSubmitSeating}>
             <div className="heading">
                 <h1><u>Book Ticket</u></h1>
             </div>
             <div className="booking-details" >
                 <div className="cinema" >
                     <label for="cinema-name" >Cinema</label>
-                    <select id="cinema-name" >
+                    <select id="cinema-name" required >
                         <option value="" hidden selected>Select Cinema</option>
                         <option value="wave" >Wave Priya Mall, Kashipur</option>
                         <option value="cinepolis" >PRV Pacific Mall, Dehradun</option>
@@ -42,11 +59,11 @@ const SeatBooking = () => {
                 </div>
                 <div className="booking-date" >
                     <label for="date" >Booking Date</label>
-                    <input type="date" id="date" />
+                    <input type="date" id="date" min={disablePastDate()} required />
                 </div>
                 <div className="booking-time" >
                     <label for="cinema-time" >Time</label>
-                    <select id="cinema-time" >
+                    <select id="cinema-time" required >
                         <option value="" hidden selected >Select Time</option>
                         <option value="10:00_am" >10:00 AM</option>
                         <option value="01:00_pm" >01:00 PM</option>
@@ -83,11 +100,12 @@ const SeatBooking = () => {
                     </div>
                 ))}
             </div>
-            <div className="booking-btnDiv" >
-                <Link to={`/${moviename}/${price}/${numberOfTickets}`}>
-                    <button type="submit" className="booking-btn" >Submit</button>
-                </Link>
+
+            <div className="btnDiv">
+                <button type="submit" className="booking-btn" >Submit</button>
             </div>
+        </form>
+        <ToastContainer />
         </div>
     )
 }

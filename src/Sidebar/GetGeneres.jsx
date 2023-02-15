@@ -9,7 +9,7 @@ const GetGenres = ({genre}) => {
         <>
             {genre.map(genre => (
                 <li>
-                <NavLink to={`/${genre.id}`} className="inactive" activeClassName="active">
+                <NavLink to={`/genres/${genre.id}`} className="inactive" activeClassName="active">
                     {genre.name}
                 </NavLink>
                 </li>

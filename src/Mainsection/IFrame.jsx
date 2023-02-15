@@ -29,7 +29,7 @@ const IFrame = ({cardData, open, handleClose}) => {
 
     const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
 
-    const price = Math.floor(Math.random() * (300 - 250 + 1)) + 250;
+    const price = 250;
 
     const [wishlist, setWishlist] = useState(
         JSON.parse(localStorage.getItem(user.email)) || []
@@ -46,7 +46,6 @@ const IFrame = ({cardData, open, handleClose}) => {
         setWishlist([...wishlist, {movieId, movieTitle}]);
         
     }
-    
 
     return(<>
         <div>
@@ -69,7 +68,7 @@ const IFrame = ({cardData, open, handleClose}) => {
                             <div><b>{cardData.vote_average}/10</b></div>
                         </div>
                         <p className='gamaContent'>{cardData.original_language}</p>
-                        <p className='gamaContent'>{Math.floor(Math.random() * (150 - 100 + 1)) + 100} minutes * Action{}</p>
+                        <p className='gamaContent'>250 minutes * Action</p>
                         <p className='gamaContent'>{cardData.overview}</p>
                         <p className='gamaContent'>₹{price}</p>
                         <div className='iFrameBtnDiv gamaContent'>

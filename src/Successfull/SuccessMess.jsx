@@ -10,7 +10,7 @@ const SuccessMess = () => {
     return(
         <>
             <div className="successCard">
-                <p>THANKS {user.name}</p>
+                <p>THANKS {user?.name}</p>
                 <img className="successImage" src={successImage} alt="Success Image"/>
                 <p>We received your purchase request</p>
                 <p>we'll be in touch shortly!</p>

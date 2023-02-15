@@ -28,11 +28,11 @@ function App() {
       
       <Route path='*' element={ <Error /> } />
       <Route path='/success' exact element={ <SuccessMess /> } />
-      <Route path='/:id' element={ <MainWithId /> } />
-      <Route path='/:moviename/:price' element={ <SeatBooking  /> } />     
-      <Route path='/:moviename/:price/:numberOfTickets' element={<PaymentPage />} />
-      <Route path='/login' element={<LoginPage />}/>
-      <Route path='/search/:searchMovie' element={ <ShowSearchResult />} />
+      <Route path='/genres/:id' exact element={ <MainWithId /> } />
+      <Route path='/:moviename/:price' exact element={ <SeatBooking  /> } />     
+      <Route path='/:moviename/:price/:numberOfTickets' exact element={<PaymentPage />} />
+      <Route path='/login' exact element={<LoginPage />}/>
+      <Route path='/search/:searchMovie' exact element={ <ShowSearchResult />} />
     </Routes>
   );
 }

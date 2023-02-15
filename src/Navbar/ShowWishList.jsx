@@ -21,7 +21,7 @@ const ShowWishLisht = () => {
 
     useEffect(() => {
         getData();
-    }, [user])
+    }, [wishlistData])
     
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -33,31 +33,29 @@ const ShowWishLisht = () => {
     };
 
     return(
-        <>
-            <div>
-                <FavoriteIcon fontSize="large" style={{ color: '#ffffff' }}
-                id="basic-button"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                >
-                </FavoriteIcon>
-                {wishlistData.length > 0 &&
-                <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    MenuListProps={{
-                      'aria-labelledby': 'basic-button',
-                    }}>
-                    {isAuthenticated ? 
-                    <ShowWishListItems getData= {getData} wishlistData={wishlistData} /> : 
-                    <MenuItem onClick={loginWithRedirect}>Please Login First</MenuItem>}
-                </Menu>}
-            </div>
-        </>
+        <div>
+            <FavoriteIcon fontSize="large" style={{ color: '#ffffff' }}
+            id="basic-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+            >
+            </FavoriteIcon>
+            {wishlistData.length > 0 &&
+            <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}>
+                {isAuthenticated ? 
+                <ShowWishListItems getData= {getData} wishlistData={wishlistData} /> : 
+                <MenuItem onClick={loginWithRedirect}>Please Login First</MenuItem>}
+            </Menu>}
+        </div>
     )
 }
 

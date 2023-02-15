@@ -6,11 +6,15 @@ import UseRadioGroup from './UseRadioGroup'
 import { Link } from "react-router-dom";
 import SuccessMess from "../Successfull/SuccessMess";
 
-
 const PaymentCard = () => {
 
+    const handleClick = (event) => {
+        event.preventDefault();
+        window.location.href = `/success`;
+    }
+
     return(
-        <>
+        <form onSubmit={handleClick}>
             <h2>Payment</h2>
             <div className="userInfo">
                 <TextFields type="text" lable = "First name" className='textField' required/>
@@ -30,11 +34,14 @@ const PaymentCard = () => {
                 <CardInfoFields labelName="Expiration" type="text" className="cardInfoField" min = {2} max = {5} />
                 <CardInfoFields labelName="CVV" type="number" className="cardInfoField" min = {3} max = {3} />
             </div>
-            <Link to="/success" element= <SuccessMess />>
-                <button className="payBtn">Proceed to pay</button>
-            </Link>
             
-        </>
+                <button 
+                    type="submit"
+                    className="payBtn"
+                    >
+                    Proceed to pay
+                </button>            
+        </form>
     )
 }
 

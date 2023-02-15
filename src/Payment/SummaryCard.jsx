@@ -8,7 +8,6 @@ const SummaryCard = () => {
     const setPrice = (price * ticket) + 8.87;
     const handleChange = (e) => {
         setTicket(e.target.value)
-
     }
 
 
